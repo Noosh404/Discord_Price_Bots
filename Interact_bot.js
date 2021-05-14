@@ -32,7 +32,7 @@ bot.on('message', async (message) => {
 //  }
 
   // Reply to !price
-  if (message.content.startsWith('!price')) {
+  if (message.content.startsWith('?price')) {
         const rawdata = await fetch(`https://api.pancakeswap.info/api/tokens/${contract}`).then(response => response.text()); // fetch raw data from api
         let data = JSON.parse(rawdata) // export raw data as json
        mprice = (data['data']['price'] * multiplier).toFixed(5); 
@@ -41,20 +41,17 @@ bot.on('message', async (message) => {
        message.channel.send(`1 million: ${mprice} USD | ${mbnb} BNB`)
   }
   // Reply to !buy
-  if (message.content.startsWith('!buy')) {
+  if (message.content.startsWith('?buy')) {
        const pancake = `https://exchange.pancakeswap.finance/#/swap?inputCurrency=${contract}`
        message.channel.send(`Pancakeswap: ${pancake}`);
   }
 
   // Reply to !chart
-  if (message.content.startsWith('!chart')) {
+  if (message.content.startsWith('?chart')) {
      const chart = `https://charts.bogged.finance/?token=${contract}`
      message.channel.send(`BoggedFinance Chart: ${chart}`);
   }
-  if (message.content.startsWith('!help')) {
-  message.channel.send(`!price : Current prices`);
-  message.channel.send(`!buy : Where to buy`);
-  message.channel.send(`!chart : Chart of coin prices`);
-  message.channel.send(`!help : help page`);
+  if (message.content.startsWith('?help')) {
+  message.channel.send(`!price : Current prices\n!buy : Where to buy\n!chart : Chart of coin prices\n!help : help page`);
   }
 });
