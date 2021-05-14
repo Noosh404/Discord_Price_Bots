@@ -52,6 +52,6 @@ bot.on('message', async (message) => {
      message.channel.send(`BoggedFinance Chart: ${chart}`);
   }
   if (message.content.startsWith('?help')) {
-  message.channel.send(`!price : Current prices\n!buy : Where to buy\n!chart : Chart of coin prices\n!help : help page`);
+  message.channel.send(`?price : Current prices\n?buy : Where to buy\n?chart : Chart of coin prices\n?help : help page`);
   }
 });
